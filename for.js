@@ -1,20 +1,11 @@
-function fibonacciGenerator(n) {
-  let output = [];
-  let first = 0;
-  let second = 1;
-  if (n === 1) {
-    output = [first];
-  } else if (n === 2) {
-    output = [first, second];
-  } else if (n > 2) {
-    output = [first, second];
-    for (let i = 2; i < n; i++) {
-      let third = first + second;
-      output.push(third);
-      first = second;
-      second = third;
-    }
+const fibonacchi = (n)=>{
+  if(n<=0) return [];
+  if(n===1) return [0, 1];
+  let fib = [0, 1];
+  for(i=2; i<n; i++){
+    fib.push(fib[i-2]+fib[i-1]);
   }
-  return output;
+  return fib;
 }
-fibonacciGenerator(3);
+
+fibonacchi(10);
